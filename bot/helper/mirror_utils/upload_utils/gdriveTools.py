@@ -537,7 +537,7 @@ class GoogleDriveHelper:
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
                                  title = 'Sagiri TorrentGD Search',
                                  author_name='Ihsan',
-                                 author_url='https/userlazy.github.io/UserLazy',
+                                 author_url='https://github.com/userlazy/botgabut',
                                  html_content=content)
         return
 
@@ -622,7 +622,7 @@ class GoogleDriveHelper:
                 self.path.append(Telegraph(access_token=telegraph_token).create_page(
                                                         title = 'Sagiri TorrentGD Search',
                                                         author_name='Ihsan',
-                                                        author_url='https://userlazy.github.io/UserLazy',
+                                                        author_url='https://github.com/userlazy/botgabut',
                                                         html_content=content
                                                         )['path'])
 
