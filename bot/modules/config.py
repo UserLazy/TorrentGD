@@ -46,6 +46,12 @@ async def del_varr(client, message, app_):
     await msg_.edit(f"`Sucessfully Deleted {_var} Var!`", parse_mode="markdown")
     del heroku_var[_var]
 
+@app.on_message(filters.command(['reboot']) & filters.user(OWNER_ID))
+@check_heroku
+async def gib_restart(client, message, hap):
+    msg_ = await message.reply_text("[HEROKU] - Restarting")
+    hap.restart()
+
 # CONFIG LIST #
 
 __header__='📕 **Page** **{}**\n\n'
@@ -53,7 +59,7 @@ __header__='📕 **Page** **{}**\n\n'
 @app.on_message(filters.command(BotCommands.ConfigMenuCommand) & filters.user(OWNER_ID))
 async def config_menu(_, message):
     await message.reply(
-        f"**Hello {message.from_user.mention}**,\n\n**If you want to add or set Variable in Heroku use** `/setvar`\n\n**If you want to delete Variable in Heroku use `/delvar`**\n\n**WARNING! Very Recommended to do this command in private since it's contain Bot info.**\n\n**Here's This is Sagiri TorrentGD Current Configs**",
+        f"**Hello {message.from_user.mention}**,\n\n**If you want to add or set Variable in Heroku use** `/setvar`\n\n**If you want to delete Variable in Heroku use `/delvar`**\n\n**WARNING! Very Recommended to do this command in private since it's contain Bot info.**\n\n**Here's This is Sagiri TorrentGd Current Configs**",
         reply_markup=types.InlineKeyboardMarkup(
             [[types.InlineKeyboardButton(f"{emoji.CROSS_MARK}", callback_data='docs_end'), types.InlineKeyboardButton(f"BOT CONFIG", callback_data='docs_1')]]
         )
